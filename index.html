@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sunghan Park · crypto markets, cryptography, ML</title>
-<meta name="description" content="Sunghan Park builds tools that price, stress-test and break crypto markets: a prediction-market arbitrage scanner, a memecoin health evaluator, secp256k1 from scratch, and a Solidity AMM with an MEV lab.">
+<title>Sunghan Park</title>
+<meta name="description" content="Sunghan Park: a tennis and golf arbitrage scanner, a memecoin risk checker, elliptic-curve cryptography from scratch, and a Solidity liquidity pool.">
 <meta property="og:title" content="Sunghan Park">
-<meta property="og:description" content="Tools that price, stress-test and break crypto markets.">
+<meta property="og:description" content="Tools for crypto markets.">
 <meta property="og:image" content="https://sunghanpark.vercel.app/img/arbline.jpg">
 <link rel="icon" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -107,8 +107,8 @@ main{padding:40px 48px 60px;min-width:0}
   <aside>
     <div class="m">Singapore · meet me at TOKEN2049</div>
     <h1>Sunghan<br>Park</h1>
-    <p class="lede">I build tools that price, stress-test and break <em>crypto markets</em>.</p>
-    <p class="sub">Engineering at the University of Cambridge (Trinity College, from 2027). Prediction markets, on-chain risk, applied cryptography, and ML for trading.</p>
+    <p class="lede">I build tools for <em>crypto markets</em>.</p>
+    <p class="sub">Engineering at the University of Cambridge (Trinity College, from 2027). Interested in prediction markets, on-chain risk, cryptography and ML.</p>
     <nav class="links">
       <a href="/resume/">Résumé <span>1 page · PDF ↓</span></a>
       <a href="https://github.com/hpark236" target="_blank" rel="noopener">GitHub <span>hpark236 ↗</span></a>
@@ -118,8 +118,8 @@ main{padding:40px 48px 60px;min-width:0}
     <div class="live">
       <div class="m">Read live from my projects</div>
       <dl>
-        <dt>Tightest Polymarket / Kalshi / DraftKings pair</dt><dd id="lvArb">…</dd>
-        <dt>Games priced on all three venues</dt><dd id="lvGames">…</dd>
+        <dt>Lowest tennis/golf pair (Arbline)</dt><dd id="lvArb">…</dd>
+        <dt>Tennis matches on 2+ venues</dt><dd id="lvGames">…</dd>
         <dt>USDC per WETH, Uniswap V2</dt><dd id="lvPool">…</dd>
         <dt>Ethereum block</dt><dd id="lvBlock">…</dd>
       </dl>
@@ -127,60 +127,56 @@ main{padding:40px 48px 60px;min-width:0}
   </aside>
 
   <main>
-    <div class="sectionhead"><h2>Web3 work</h2><span class="m">4 projects · live, open source, tested</span></div>
+    <div class="sectionhead"><h2>Web3 work</h2><span class="m">4 projects</span></div>
 
     <article class="plate">
-      <div class="frame"><div class="chrome"><a href="https://arbline.vercel.app" target="_blank" rel="noopener">arbline.vercel.app ↗</a><span>Polymarket · Kalshi · DraftKings</span></div>
-        <a href="https://arbline.vercel.app" target="_blank" rel="noopener"><img src="/img/arbline.jpg" alt="Arbline board ranking live games by the cheapest two-leg price across three venues" loading="eager"></a></div>
+      <div class="frame"><div class="chrome"><a href="https://arbline.vercel.app" target="_blank" rel="noopener">arbline.vercel.app ↗</a><span>Polymarket · Kalshi · Pinnacle</span></div>
+        <a href="https://arbline.vercel.app" target="_blank" rel="noopener"><img src="/img/arbline.jpg" alt="Arbline table of tennis matches priced on three venues" loading="eager"></a></div>
       <div class="ptext">
-        <h3>Arbline<small>Prediction markets vs the sportsbook, priced to the cent.</small></h3>
+        <h3>Arbline<small>Tennis and golf arbitrage scanner.</small></h3>
         <div>
-          <p>Every upcoming NFL, MLB, NBA and NHL game on Polymarket, Kalshi and DraftKings, converted to one unit: the all-in cost of a claim that pays $1 if a team wins. If the cheapest claims on both sides sum to under $1, the payout is locked.</p>
-          <p><b>The hard part</b> is honesty. Each venue has its own team codes, fee curve and order book, so a quote is only real once fees are in and depth is checked. Opening a game walks both live order books together and reports what would actually fill.</p>
-          <dl class="facts"><dt>Stack</dt><dd>Node serverless, vanilla JS, no API keys</dd><dt>Math</dt><dd>de-vig, taker-fee curves, depth walk, equal-payout staking</dd><dt>Tests</dt><dd>7 unit tests on odds, fees and matching</dd></dl>
-          <div class="btnrow"><a class="pri" href="https://arbline.vercel.app" target="_blank" rel="noopener">Open live</a><a href="https://github.com/hpark236/arbline" target="_blank" rel="noopener">Code</a></div>
+          <p>Compares tennis match and golf tournament prices on Polymarket, Kalshi and Pinnacle, including each venue's fees, and shows when backing both outcomes across two venues costs less than $1. Selecting a player checks the live order books to see how much could actually be traded.</p>
+          <dl class="facts"><dt>Data</dt><dd>Polymarket, Kalshi and Pinnacle public APIs</dd><dt>Built with</dt><dd>Node serverless functions, JavaScript</dd><dt>Tests</dt><dd>9 unit tests</dd></dl>
+          <div class="btnrow"><a class="pri" href="https://arbline.vercel.app" target="_blank" rel="noopener">Open</a><a href="https://github.com/hpark236/arbline" target="_blank" rel="noopener">Code</a></div>
         </div>
       </div>
     </article>
 
     <article class="plate">
       <div class="frame"><div class="chrome"><a href="https://coin-vitals.vercel.app" target="_blank" rel="noopener">coin-vitals.vercel.app ↗</a><span>Solana · Ethereum · Base · BNB · Arbitrum</span></div>
-        <a href="https://coin-vitals.vercel.app" target="_blank" rel="noopener"><img src="/img/vitals.jpg" alt="Vitals health report for BONK: score 67, grade C, with price trace and five vital signs" loading="lazy"></a></div>
+        <a href="https://coin-vitals.vercel.app" target="_blank" rel="noopener"><img src="/img/vitals.jpg" alt="Vitals report for BONK" loading="lazy"></a></div>
       <div class="ptext">
-        <h3>Vitals<small>A memecoin health check that shows its working.</small></h3>
+        <h3>Vitals<small>Memecoin risk checker.</small></h3>
         <div>
-          <p>Paste a token address. Vitals reads the contract, the pools and the holder list and returns a 0 to 100 grade, with every deduction tied to a piece of evidence: live mint or freeze authority, honeypot simulation, LP locks, top-wallet concentration, deployer-linked wallets, sell pressure, and how far a $10K exit would move the price.</p>
-          <p><b>The hard part</b> is weighting. A great chart cannot save a token whose freeze authority is live, so disqualifying findings cap the score outright instead of being averaged away.</p>
-          <dl class="facts"><dt>Data</dt><dd>DexScreener, RugCheck, GoPlus, GeckoTerminal</dd><dt>Math</dt><dd>Lorenz curve, Gini, HHI, x·y=k exit slippage</dd><dt>Tests</dt><dd>6 unit tests on the scoring model</dd></dl>
-          <div class="btnrow"><a class="pri" href="https://coin-vitals.vercel.app" target="_blank" rel="noopener">Open live</a><a href="https://github.com/hpark236/vitals" target="_blank" rel="noopener">Code</a></div>
+          <p>Takes a Solana or EVM token address and gives a score out of 100 based on contract permissions, liquidity, holder concentration, trading activity and age. Each deduction is listed with the reason.</p>
+          <dl class="facts"><dt>Data</dt><dd>DexScreener, RugCheck, GoPlus, GeckoTerminal</dd><dt>Built with</dt><dd>Node serverless functions, JavaScript</dd><dt>Tests</dt><dd>6 unit tests</dd></dl>
+          <div class="btnrow"><a class="pri" href="https://coin-vitals.vercel.app" target="_blank" rel="noopener">Open</a><a href="https://github.com/hpark236/vitals" target="_blank" rel="noopener">Code</a></div>
         </div>
       </div>
     </article>
 
     <article class="plate">
       <div class="frame"><div class="chrome"><a href="https://secp-lab.vercel.app" target="_blank" rel="noopener">secp-lab.vercel.app ↗</a><span>no crypto libraries</span></div>
-        <a href="https://secp-lab.vercel.app" target="_blank" rel="noopener"><img src="/img/curvelab.jpg" alt="Curve Lab nonce-reuse experiment recovering a private key from two signatures" loading="lazy"></a></div>
+        <a href="https://secp-lab.vercel.app" target="_blank" rel="noopener"><img src="/img/curvelab.jpg" alt="Curve Lab page" loading="lazy"></a></div>
       <div class="ptext">
-        <h3>Curve Lab<small>secp256k1, Keccak, ECDSA, Schnorr and Shamir, by hand.</small></h3>
+        <h3>Curve Lab<small>Elliptic-curve cryptography from scratch.</small></h3>
         <div>
-          <p>The cryptography under every Bitcoin and Ethereum balance, written from first principles in JavaScript BigInt: field inverses, double-and-add, Keccak-f[1600], RFC 6979 nonces, ecrecover, BIP-340 Schnorr and 3-of-5 Shamir splitting. Paste a real MetaMask signature and it names the signer.</p>
-          <p><b>The part people stop at</b> is experiment four: sign two messages with the same nonce and watch the page solve for the private key, the bug behind the PS3 key leak and the 2013 Android wallet thefts.</p>
-          <dl class="facts"><dt>Verified</dt><dd>against OpenSSL both ways, Keccak, EIP-55 and BIP-340 vectors</dd><dt>Tests</dt><dd>10 tests</dd></dl>
-          <div class="btnrow"><a class="pri" href="https://secp-lab.vercel.app" target="_blank" rel="noopener">Open live</a><a href="https://github.com/hpark236/curve-lab" target="_blank" rel="noopener">Code</a></div>
+          <p>secp256k1, Keccak-256, ECDSA with public key recovery, Schnorr signatures (BIP-340) and Shamir secret sharing, written in plain JavaScript without crypto libraries. Includes a demonstration of recovering a private key from two signatures that reuse a nonce.</p>
+          <dl class="facts"><dt>Built with</dt><dd>JavaScript BigInt, WebCrypto for SHA-256</dd><dt>Tests</dt><dd>10 tests, checked against OpenSSL and published test vectors</dd></dl>
+          <div class="btnrow"><a class="pri" href="https://secp-lab.vercel.app" target="_blank" rel="noopener">Open</a><a href="https://github.com/hpark236/curve-lab" target="_blank" rel="noopener">Code</a></div>
         </div>
       </div>
     </article>
 
     <article class="plate">
       <div class="frame"><div class="chrome"><a href="https://amm-lab.vercel.app" target="_blank" rel="noopener">amm-lab.vercel.app ↗</a><span>Solidity · live mainnet reserves</span></div>
-        <a href="https://amm-lab.vercel.app" target="_blank" rel="noopener"><img src="/img/ammlab.jpg" alt="AMM Lab showing the constant-product curve and an optimal sandwich attack on live Uniswap V2 reserves" loading="lazy"></a></div>
+        <a href="https://amm-lab.vercel.app" target="_blank" rel="noopener"><img src="/img/ammlab.jpg" alt="AMM Lab page" loading="lazy"></a></div>
       <div class="ptext">
-        <h3>AMM Lab<small>A Solidity pool, and everything that happens to it.</small></h3>
+        <h3>AMM Lab<small>Solidity liquidity pool and calculator.</small></h3>
         <div>
-          <p>A Uniswap-V2-style constant-product pool in Solidity, plus a lab that reads live mainnet reserves over raw JSON-RPC and works out price impact, the bot's profit-maximising sandwich around your swap, the optimal arbitrage back to the Binance price, and impermanent loss.</p>
-          <p><b>The part I like</b> is that the two halves check each other. The Hardhat tests plan a sandwich with the browser's integer math, replay it against the contract, and the attacker's on-chain profit matches the model to the wei.</p>
-          <dl class="facts"><dt>Stack</dt><dd>Solidity 0.8, OpenZeppelin, Hardhat, ethers</dd><dt>Tests</dt><dd>8 contract tests + 4 model tests</dd></dl>
-          <div class="btnrow"><a class="pri" href="https://amm-lab.vercel.app" target="_blank" rel="noopener">Open live</a><a href="https://github.com/hpark236/amm-lab" target="_blank" rel="noopener">Code</a></div>
+          <p>A Uniswap V2 style pool written in Solidity, plus a page that reads live Uniswap V2 reserves from Ethereum and calculates price impact, sandwich attacks, arbitrage against Binance and impermanent loss. The contract tests run a sandwich attack and check the result against the calculator.</p>
+          <dl class="facts"><dt>Built with</dt><dd>Solidity, OpenZeppelin, Hardhat, JavaScript</dd><dt>Tests</dt><dd>8 contract tests, 4 JavaScript tests</dd></dl>
+          <div class="btnrow"><a class="pri" href="https://amm-lab.vercel.app" target="_blank" rel="noopener">Open</a><a href="https://github.com/hpark236/amm-lab" target="_blank" rel="noopener">Code</a></div>
         </div>
       </div>
     </article>
@@ -188,13 +184,13 @@ main{padding:40px 48px 60px;min-width:0}
     <div class="sectionhead"><h2>AI and quant work</h2><span class="m">agents, game theory, computer vision</span></div>
     <div class="others">
       <div class="other"><h4>FinCouncil <a href="https://github.com/hpark236/roundtable-plugin" target="_blank" rel="noopener">code ↗</a></h4>
-        <p>An open-source multi-agent investment council for Claude Code. Five analyst agents with distinct mandates argue over a trade using live brokerage data, cross-examine each other, pass a fact-check, and a CIO agent writes the call with position sizing.</p><span class="m">LLM agents · moomoo OpenAPI · SEC EDGAR</span></div>
+        <p>A Claude Code plugin in which five AI analyst agents review a stock or options idea using live brokerage data, and a sixth summarises their views into a recommendation.</p><span class="m">LLM agents · moomoo OpenAPI · SEC EDGAR</span></div>
       <div class="other"><h4>QUANTDESK <a>private build</a></h4>
-        <p>A paper-trading terminal: drop a Python strategy into a folder and it is backtested, deployable live on a paper account, and wired to Binance websockets and a pump.fun memecoin feed, with a pattern scanner that sends alerts.</p><span class="m">Python · FastAPI · SQLite · websockets</span></div>
+        <p>A paper-trading app for Python strategies, with backtesting, live paper trading, Binance and pump.fun data, and price alerts.</p><span class="m">Python · FastAPI · SQLite · websockets</span></div>
       <div class="other"><h4>Hold'em Noir <a href="https://poker-noir.vercel.app/learn" target="_blank" rel="noopener">live ↗</a></h4>
-        <p>A multiplayer poker engine whose bots keep Bayesian ranges over all 1,326 starting hands, estimate equity by Monte Carlo, and tilt. Its classroom includes a heads-up push/fold Nash solver that runs fictitious play in the browser.</p><span class="m">game theory · Monte Carlo · WebSockets</span></div>
+        <p>Multiplayer poker with computer players that estimate opponents' hand ranges and win chances. Includes a heads-up push/fold equilibrium solver.</p><span class="m">game theory · Monte Carlo · WebSockets</span></div>
       <div class="other"><h4>SwingLab <a href="https://swinglab-one.vercel.app" target="_blank" rel="noopener">live ↗</a></h4>
-        <p>On-device computer vision for tennis: pose and racket detection, court lines found with a hand-written Hough transform, swing speed from body scale, and a kinetic-chain check of hip, shoulder and hand timing.</p><span class="m">MediaPipe · computer vision · Canvas</span></div>
+        <p>Tennis swing analysis in the browser using pose and object detection, with court-line detection and swing timing.</p><span class="m">MediaPipe · computer vision · Canvas</span></div>
     </div>
 
     <div class="sectionhead"><h2>Background</h2><span class="m">full detail in the résumé</span></div>
@@ -207,9 +203,9 @@ main{padding:40px 48px 60px;min-width:0}
     </div>
 
     <div class="close">
-      <span class="m">If you're building in prediction markets, market structure or wallets</span><br>
+      <span class="m">Contact</span><br>
       <a class="mail" href="mailto:park@portico-sg.com">park@portico-sg.com</a>
-      <p>Open to internships, research collaborations and hard problems. All four web3 projects above are open source under github.com/hpark236.</p>
+      <p>Open to internships and research collaborations.</p>
     </div>
   </main>
 </div>
@@ -219,9 +215,9 @@ main{padding:40px 48px 60px;min-width:0}
 (async () => {
   const set = (id, v, cls) => { const el = document.getElementById(id); el.textContent = v; if (cls) el.className = cls; };
   fetch('https://arbline.vercel.app/api/board').then(r => r.json()).then(j => {
-    const best = j.games.map(g => g.analysis.best?.sum).filter(Boolean).sort((a, b) => a - b)[0];
+    const best = [...j.tennis, ...j.golf].flatMap(e => e.outcomes.map(o => o.best?.sum)).filter(Boolean).sort((a, b) => a - b)[0];
     set('lvArb', best ? best.toFixed(4) : '-', best < 1 ? 'up' : '');
-    set('lvGames', String(j.games.filter(g => g.quoted === 3).length));
+    set('lvGames', String(j.tennis.length));
   }).catch(() => { set('lvArb', '-'); set('lvGames', '-'); });
   const rpc = (method, params) => fetch('https://ethereum-rpc.publicnode.com', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ jsonrpc: '2.0', id: 1, method, params }) }).then(r => r.json()).then(j => j.result);
   try {
