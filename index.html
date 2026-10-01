@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sunghan Park · crypto markets, cryptography, ML</title>
+<meta name="description" content="Sunghan Park builds tools that price, stress-test and break crypto markets: a prediction-market arbitrage scanner, a memecoin health evaluator, secp256k1 from scratch, and a Solidity AMM with an MEV lab.">
+<meta property="og:title" content="Sunghan Park">
+<meta property="og:description" content="Tools that price, stress-test and break crypto markets.">
+<meta property="og:image" content="https://sunghanpark.vercel.app/img/arbline.jpg">
+<link rel="icon" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4f3ef; --card:#fbfaf7; --ink:#141414; --mute:#66655f; --rule:#d9d7d0; --acc:#e8490f;
+  --sans:'Geist',sans-serif; --mono:'Geist Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--paper)}
+body{background:var(--paper);color:var(--ink);font:400 16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.m{font:400 11.5px/1.5 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--mute)}
+
+.shell{display:grid;grid-template-columns:minmax(320px,400px) minmax(0,1fr);max-width:1480px;margin:0 auto}
+
+/* identity column */
+aside{position:sticky;top:0;height:100vh;padding:40px 36px 30px 40px;display:flex;flex-direction:column;border-right:1px solid var(--rule)}
+aside h1{font:800 clamp(52px,5.4vw,76px)/.88 var(--sans);letter-spacing:-.045em;margin:18px 0 22px}
+aside .lede{font-size:17.5px;line-height:1.5;max-width:30ch}
+aside .lede em{font-style:normal;color:var(--acc)}
+aside .sub{font-size:14.5px;color:var(--mute);margin-top:12px;max-width:34ch}
+.links{margin-top:26px;display:grid;gap:0;border-top:1px solid var(--ink)}
+.links a{display:flex;justify-content:space-between;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--rule);text-decoration:none;font:500 15px var(--sans)}
+.links a span{font:400 12px var(--mono);color:var(--mute)}
+.links a:hover{color:var(--acc)}
+.links a:hover span{color:var(--acc)}
+.live{margin-top:auto;padding-top:22px}
+.live dl{display:grid;grid-template-columns:1fr auto;gap:6px 14px;margin-top:8px;font:400 12.5px/1.45 var(--mono)}
+.live dt{color:var(--mute)}
+.live dd{text-align:right;font-weight:500}
+.live dd.up{color:var(--acc)}
+
+main{padding:40px 48px 60px;min-width:0}
+.sectionhead{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--ink);padding-bottom:10px;margin-bottom:34px}
+.sectionhead h2{font:700 15px/1 var(--sans);letter-spacing:.01em}
+
+/* project plates */
+.plate{margin-bottom:72px}
+.frame{border:1px solid var(--ink);background:var(--card);overflow:hidden}
+.chrome{display:flex;justify-content:space-between;gap:12px;padding:8px 12px;border-bottom:1px solid var(--ink);font:400 12px var(--mono);background:var(--paper)}
+.chrome a{text-decoration:none}
+.chrome a:hover{color:var(--acc)}
+.frame img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top;transition:transform .9s cubic-bezier(.16,1,.3,1)}
+.frame:hover img{transform:scale(1.015)}
+.ptext{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:40px;margin-top:22px}
+.ptext h3{font:700 clamp(34px,3.6vw,48px)/.95 var(--sans);letter-spacing:-.035em}
+.ptext h3 small{display:block;font:500 15px/1.4 var(--sans);letter-spacing:0;color:var(--mute);margin-top:10px}
+.ptext p{font-size:15.5px}
+.ptext p+p{margin-top:10px}
+.ptext b{font-weight:600}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;margin-top:14px;font:400 12.5px/1.6 var(--mono)}
+.facts dt{color:var(--mute);text-transform:uppercase;letter-spacing:.06em;font-size:11px;padding-top:1px}
+.btnrow{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.btnrow a{font:500 13px var(--mono);text-decoration:none;border:1px solid var(--ink);padding:8px 13px}
+.btnrow a.pri{background:var(--ink);color:var(--paper)}
+.btnrow a:hover{background:var(--acc);border-color:var(--acc);color:#fff}
+
+/* other work */
+.others{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule);margin-bottom:64px}
+.other{padding:22px 24px 24px 0;border-bottom:1px solid var(--rule)}
+.other:nth-child(2n){padding:22px 0 24px 24px;border-left:1px solid var(--rule)}
+.other h4{font:700 22px/1.1 var(--sans);letter-spacing:-.02em;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.other h4 a{font:400 12px var(--mono);color:var(--mute);text-decoration:none;white-space:nowrap}
+.other h4 a:hover{color:var(--acc)}
+.other p{font-size:14.5px;margin-top:8px;color:#2e2d29}
+.other .m{display:block;margin-top:10px}
+
+.bg{display:grid;grid-template-columns:150px 1fr;gap:14px 28px;margin-bottom:64px}
+.bg .m{padding-top:4px}
+.bg b{font-weight:600}
+.bg p{font-size:15px}
+.bg span{color:var(--mute)}
+
+.close{border-top:1px solid var(--ink);padding-top:28px}
+.close a.mail{font:700 clamp(30px,4.2vw,56px)/1 var(--sans);letter-spacing:-.035em;text-decoration:none;display:inline-block;margin-top:12px;border-bottom:3px solid var(--acc)}
+.close a.mail:hover{color:var(--acc)}
+.close p{margin-top:16px;color:var(--mute);font-size:14.5px;max-width:60ch}
+
+@media (max-width:980px){
+  .shell{grid-template-columns:1fr}
+  aside{position:static;height:auto;border-right:0;border-bottom:1px solid var(--ink);padding:28px 16px 26px}
+  aside h1{font-size:58px}
+  .live{margin-top:24px}
+  main{padding:30px 16px 50px}
+  .ptext{grid-template-columns:1fr;gap:14px}
+  .others{grid-template-columns:1fr}
+  .other,.other:nth-child(2n){padding:20px 0;border-left:0}
+  .bg{grid-template-columns:1fr;gap:4px}
+  .bg .m{margin-top:14px}
+  .chrome span:last-child{display:none}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside>
+    <div class="m">Singapore · meet me at TOKEN2049</div>
+    <h1>Sunghan<br>Park</h1>
+    <p class="lede">I build tools that price, stress-test and break <em>crypto markets</em>.</p>
+    <p class="sub">Engineering at the University of Cambridge (Trinity College, from 2027). Prediction markets, on-chain risk, applied cryptography, and ML for trading.</p>
+    <nav class="links">
+      <a href="/resume/">Résumé <span>1 page · PDF ↓</span></a>
+      <a href="https://github.com/hpark236" target="_blank" rel="noopener">GitHub <span>hpark236 ↗</span></a>
+      <a href="https://www.linkedin.com/in/sunghanpark/" target="_blank" rel="noopener">LinkedIn <span>sunghanpark ↗</span></a>
+      <a href="mailto:park@portico-sg.com">Email <span>park@portico-sg.com</span></a>
+    </nav>
+    <div class="live">
+      <div class="m">Read live from my projects</div>
+      <dl>
+        <dt>Tightest Polymarket / Kalshi / DraftKings pair</dt><dd id="lvArb">…</dd>
+        <dt>Games priced on all three venues</dt><dd id="lvGames">…</dd>
+        <dt>USDC per WETH, Uniswap V2</dt><dd id="lvPool">…</dd>
+        <dt>Ethereum block</dt><dd id="lvBlock">…</dd>
+      </dl>
+    </div>
+  </aside>
+
+  <main>
+    <div class="sectionhead"><h2>Web3 work</h2><span class="m">4 projects · live, open source, tested</span></div>
+
+    <article class="plate">
+      <div class="frame"><div class="chrome"><a href="https://arbline.vercel.app" target="_blank" rel="noopener">arbline.vercel.app ↗</a><span>Polymarket · Kalshi · DraftKings</span></div>
+        <a href="https://arbline.vercel.app" target="_blank" rel="noopener"><img src="/img/arbline.jpg" alt="Arbline board ranking live games by the cheapest two-leg price across three venues" loading="eager"></a></div>
+      <div class="ptext">
+        <h3>Arbline<small>Prediction markets vs the sportsbook, priced to the cent.</small></h3>
+        <div>
+          <p>Every upcoming NFL, MLB, NBA and NHL game on Polymarket, Kalshi and DraftKings, converted to one unit: the all-in cost of a claim that pays $1 if a team wins. If the cheapest claims on both sides sum to under $1, the payout is locked.</p>
+          <p><b>The hard part</b> is honesty. Each venue has its own team codes, fee curve and order book, so a quote is only real once fees are in and depth is checked. Opening a game walks both live order books together and reports what would actually fill.</p>
+          <dl class="facts"><dt>Stack</dt><dd>Node serverless, vanilla JS, no API keys</dd><dt>Math</dt><dd>de-vig, taker-fee curves, depth walk, equal-payout staking</dd><dt>Tests</dt><dd>7 unit tests on odds, fees and matching</dd></dl>
+          <div class="btnrow"><a class="pri" href="https://arbline.vercel.app" target="_blank" rel="noopener">Open live</a><a href="https://github.com/hpark236/arbline" target="_blank" rel="noopener">Code</a></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="plate">
+      <div class="frame"><div class="chrome"><a href="https://coin-vitals.vercel.app" target="_blank" rel="noopener">coin-vitals.vercel.app ↗</a><span>Solana · Ethereum · Base · BNB · Arbitrum</span></div>
+        <a href="https://coin-vitals.vercel.app" target="_blank" rel="noopener"><img src="/img/vitals.jpg" alt="Vitals health report for BONK: score 67, grade C, with price trace and five vital signs" loading="lazy"></a></div>
+      <div class="ptext">
+        <h3>Vitals<small>A memecoin health check that shows its working.</small></h3>
+        <div>
+          <p>Paste a token address. Vitals reads the contract, the pools and the holder list and returns a 0 to 100 grade, with every deduction tied to a piece of evidence: live mint or freeze authority, honeypot simulation, LP locks, top-wallet concentration, deployer-linked wallets, sell pressure, and how far a $10K exit would move the price.</p>
+          <p><b>The hard part</b> is weighting. A great chart cannot save a token whose freeze authority is live, so disqualifying findings cap the score outright instead of being averaged away.</p>
+          <dl class="facts"><dt>Data</dt><dd>DexScreener, RugCheck, GoPlus, GeckoTerminal</dd><dt>Math</dt><dd>Lorenz curve, Gini, HHI, x·y=k exit slippage</dd><dt>Tests</dt><dd>6 unit tests on the scoring model</dd></dl>
+          <div class="btnrow"><a class="pri" href="https://coin-vitals.vercel.app" target="_blank" rel="noopener">Open live</a><a href="https://github.com/hpark236/vitals" target="_blank" rel="noopener">Code</a></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="plate">
+      <div class="frame"><div class="chrome"><a href="https://secp-lab.vercel.app" target="_blank" rel="noopener">secp-lab.vercel.app ↗</a><span>no crypto libraries</span></div>
+        <a href="https://secp-lab.vercel.app" target="_blank" rel="noopener"><img src="/img/curvelab.jpg" alt="Curve Lab nonce-reuse experiment recovering a private key from two signatures" loading="lazy"></a></div>
+      <div class="ptext">
+        <h3>Curve Lab<small>secp256k1, Keccak, ECDSA, Schnorr and Shamir, by hand.</small></h3>
+        <div>
+          <p>The cryptography under every Bitcoin and Ethereum balance, written from first principles in JavaScript BigInt: field inverses, double-and-add, Keccak-f[1600], RFC 6979 nonces, ecrecover, BIP-340 Schnorr and 3-of-5 Shamir splitting. Paste a real MetaMask signature and it names the signer.</p>
+          <p><b>The part people stop at</b> is experiment four: sign two messages with the same nonce and watch the page solve for the private key, the bug behind the PS3 key leak and the 2013 Android wallet thefts.</p>
+          <dl class="facts"><dt>Verified</dt><dd>against OpenSSL both ways, Keccak, EIP-55 and BIP-340 vectors</dd><dt>Tests</dt><dd>10 tests</dd></dl>
+          <div class="btnrow"><a class="pri" href="https://secp-lab.vercel.app" target="_blank" rel="noopener">Open live</a><a href="https://github.com/hpark236/curve-lab" target="_blank" rel="noopener">Code</a></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="plate">
+      <div class="frame"><div class="chrome"><a href="https://amm-lab.vercel.app" target="_blank" rel="noopener">amm-lab.vercel.app ↗</a><span>Solidity · live mainnet reserves</span></div>
+        <a href="https://amm-lab.vercel.app" target="_blank" rel="noopener"><img src="/img/ammlab.jpg" alt="AMM Lab showing the constant-product curve and an optimal sandwich attack on live Uniswap V2 reserves" loading="lazy"></a></div>
+      <div class="ptext">
+        <h3>AMM Lab<small>A Solidity pool, and everything that happens to it.</small></h3>
+        <div>
+          <p>A Uniswap-V2-style constant-product pool in Solidity, plus a lab that reads live mainnet reserves over raw JSON-RPC and works out price impact, the bot's profit-maximising sandwich around your swap, the optimal arbitrage back to the Binance price, and impermanent loss.</p>
+          <p><b>The part I like</b> is that the two halves check each other. The Hardhat tests plan a sandwich with the browser's integer math, replay it against the contract, and the attacker's on-chain profit matches the model to the wei.</p>
+          <dl class="facts"><dt>Stack</dt><dd>Solidity 0.8, OpenZeppelin, Hardhat, ethers</dd><dt>Tests</dt><dd>8 contract tests + 4 model tests</dd></dl>
+          <div class="btnrow"><a class="pri" href="https://amm-lab.vercel.app" target="_blank" rel="noopener">Open live</a><a href="https://github.com/hpark236/amm-lab" target="_blank" rel="noopener">Code</a></div>
+        </div>
+      </div>
+    </article>
+
+    <div class="sectionhead"><h2>AI and quant work</h2><span class="m">agents, game theory, computer vision</span></div>
+    <div class="others">
+      <div class="other"><h4>FinCouncil <a href="https://github.com/hpark236/roundtable-plugin" target="_blank" rel="noopener">code ↗</a></h4>
+        <p>An open-source multi-agent investment council for Claude Code. Five analyst agents with distinct mandates argue over a trade using live brokerage data, cross-examine each other, pass a fact-check, and a CIO agent writes the call with position sizing.</p><span class="m">LLM agents · moomoo OpenAPI · SEC EDGAR</span></div>
+      <div class="other"><h4>QUANTDESK <a>private build</a></h4>
+        <p>A paper-trading terminal: drop a Python strategy into a folder and it is backtested, deployable live on a paper account, and wired to Binance websockets and a pump.fun memecoin feed, with a pattern scanner that sends alerts.</p><span class="m">Python · FastAPI · SQLite · websockets</span></div>
+      <div class="other"><h4>Hold'em Noir <a href="https://poker-noir.vercel.app/learn" target="_blank" rel="noopener">live ↗</a></h4>
+        <p>A multiplayer poker engine whose bots keep Bayesian ranges over all 1,326 starting hands, estimate equity by Monte Carlo, and tilt. Its classroom includes a heads-up push/fold Nash solver that runs fictitious play in the browser.</p><span class="m">game theory · Monte Carlo · WebSockets</span></div>
+      <div class="other"><h4>SwingLab <a href="https://swinglab-one.vercel.app" target="_blank" rel="noopener">live ↗</a></h4>
+        <p>On-device computer vision for tennis: pose and racket detection, court lines found with a hand-written Hough transform, swing speed from body scale, and a kinetic-chain check of hip, shoulder and hand timing.</p><span class="m">MediaPipe · computer vision · Canvas</span></div>
+    </div>
+
+    <div class="sectionhead"><h2>Background</h2><span class="m">full detail in the résumé</span></div>
+    <div class="bg">
+      <span class="m">Education</span><p><b>University of Cambridge, Trinity College</b>, Engineering (Information Engineering), from Oct 2027<br><b>Singapore American School</b>, 2022 to 2025 <span>· Mu Alpha Theta, Computer Science Honor Society</span></p>
+      <span class="m">Research</span><p><b>A*STAR Institute for Infocomm Research</b>, research intern on UAV perching systems, simulated in ROS 2 <span>· 2024</span></p>
+      <span class="m">Founding</span><p><b>Sow4Future</b>, co-founder of a financial-literacy and ESG-investing nonprofit for 2,000+ students in 15+ countries <span>· 2023 to now</span></p>
+      <span class="m">Awards</span><p><b>Semifinalist</b>, Wharton Global High School Investment Competition <span>· 2024</span></p>
+      <span class="m">Languages</span><p>English, Korean, Mandarin, French</p>
+    </div>
+
+    <div class="close">
+      <span class="m">If you're building in prediction markets, market structure or wallets</span><br>
+      <a class="mail" href="mailto:park@portico-sg.com">park@portico-sg.com</a>
+      <p>Open to internships, research collaborations and hard problems. All four web3 projects above are open source under github.com/hpark236.</p>
+    </div>
+  </main>
+</div>
+
+<script>
+// Live readings pulled from the projects themselves.
+(async () => {
+  const set = (id, v, cls) => { const el = document.getElementById(id); el.textContent = v; if (cls) el.className = cls; };
+  fetch('https://arbline.vercel.app/api/board').then(r => r.json()).then(j => {
+    const best = j.games.map(g => g.analysis.best?.sum).filter(Boolean).sort((a, b) => a - b)[0];
+    set('lvArb', best ? best.toFixed(4) : '-', best < 1 ? 'up' : '');
+    set('lvGames', String(j.games.filter(g => g.quoted === 3).length));
+  }).catch(() => { set('lvArb', '-'); set('lvGames', '-'); });
+  const rpc = (method, params) => fetch('https://ethereum-rpc.publicnode.com', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ jsonrpc: '2.0', id: 1, method, params }) }).then(r => r.json()).then(j => j.result);
+  try {
+    const [res, blk] = await Promise.all([rpc('eth_call', [{ to: '0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc', data: '0x0902f1ac' }, 'latest']), rpc('eth_blockNumber', [])]);
+    const w = res.slice(2).match(/.{64}/g);
+    const usdc = Number(BigInt('0x' + w[0])) / 1e6, weth = Number(BigInt('0x' + w[1])) / 1e18;
+    set('lvPool', (usdc / weth).toLocaleString('en-US', { maximumFractionDigits: 2 }));
+    set('lvBlock', parseInt(blk, 16).toLocaleString('en-US'));
+  } catch { set('lvPool', '-'); set('lvBlock', '-'); }
+})();
+</script>
+</body>
+</html>
