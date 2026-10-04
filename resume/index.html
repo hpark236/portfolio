@@ -4,53 +4,75 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sunghan Park · Résumé</title>
-<meta name="description" content="Résumé of Sunghan Park: engineering at Cambridge, building crypto market tools, applied cryptography and ML.">
+<meta name="description" content="Résumé of Sunghan Park, Information Engineering at the University of Cambridge.">
 <link rel="icon" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#141414;--mute:#5d5d58;--rule:#d9d7d0;--acc:#e8490f;--paper:#f4f3ef}
+:root{--ink:#141414;--mute:#5d5d58;--rule:#dcdad3;--acc:#e8490f;--paper:#f4f3ef}
 *{box-sizing:border-box;margin:0;padding:0}
 html{background:var(--paper)}
-body{font:400 9.35pt/1.42 'Geist',sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;background:var(--paper)}
+body{font:400 10pt/1.55 'Geist',sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;background:var(--paper)}
 a{color:inherit;text-decoration:none}
-.bar{max-width:210mm;margin:18px auto 0;display:flex;justify-content:space-between;align-items:center;font:500 12px 'Geist Mono',monospace;padding:0 4px}
-.bar a{border:1.5px solid var(--ink);padding:7px 12px;background:#fff}
+.bar{max-width:210mm;margin:18px auto 0;display:flex;justify-content:space-between;align-items:center;gap:10px;font:500 12px 'Geist Mono',monospace;padding:0 4px}
+.bar a{border:1.5px solid var(--ink);padding:8px 12px;background:#fff}
 .bar a:hover{background:var(--ink);color:#fff}
-.page{width:210mm;min-height:297mm;margin:12px auto 40px;background:#fff;padding:12mm 13mm 10mm;box-shadow:0 1px 0 var(--rule),0 18px 40px -24px rgba(40,36,28,.35)}
-header{display:grid;grid-template-columns:1fr auto;gap:10mm;align-items:end;padding-bottom:3.2mm;border-bottom:1.4pt solid var(--ink)}
-h1{font:700 25pt/1 'Geist',sans-serif;letter-spacing:-.025em}
-.role{font:500 10pt/1.35 'Geist',sans-serif;margin-top:2mm}
-.role span{color:var(--acc)}
-.seek{display:inline-block;margin-top:2.2mm;font:600 8.6pt/1 'Geist',sans-serif;color:#fff;background:var(--acc);padding:1.4mm 2.4mm}
-.contact{font:400 7.9pt/1.6 'Geist Mono',monospace;text-align:right;color:var(--ink)}
-h2{font:600 7.6pt/1 'Geist Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:4.2mm 0 1.8mm;display:flex;gap:3mm;align-items:center}
+.page{width:210mm;min-height:297mm;margin:12px auto 40px;background:#fff;padding:15mm 16mm 13mm;box-shadow:0 1px 0 var(--rule),0 18px 40px -24px rgba(40,36,28,.35)}
+
+header{padding-bottom:5mm;border-bottom:1.4pt solid var(--ink)}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:10mm}
+h1{font:700 26pt/1 'Geist',sans-serif;letter-spacing:-.025em}
+.role{font:500 10.5pt/1.4 'Geist',sans-serif;margin-top:2.5mm;color:#333}
+.seek{display:inline-block;margin-top:3.5mm;font:600 9pt/1 'Geist',sans-serif;color:#fff;background:var(--acc);padding:1.6mm 2.6mm}
+.contact{font:400 8.4pt/1.75 'Geist Mono',monospace;text-align:right;white-space:nowrap}
+
+h2{font:600 8pt/1 'Geist Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:8mm 0 3.5mm;display:flex;gap:3mm;align-items:center}
 h2::after{content:'';flex:1;border-top:.6pt solid var(--rule)}
-.item{margin-bottom:2.3mm;break-inside:avoid}
-.ih{display:grid;grid-template-columns:1fr auto;gap:4mm;align-items:baseline}
-.ih b{font-weight:600;font-size:9.8pt}
-.ih .d{font:400 7.8pt 'Geist Mono',monospace;color:var(--mute);white-space:nowrap}
-.sub{color:var(--mute);font-size:8.6pt}
-.sub a{color:var(--acc)}
-ul{margin:.8mm 0 0 3.6mm}
-li{margin:.45mm 0;padding-left:.6mm}
-li::marker{color:var(--mute)}
-.tight{margin-left:3.6mm}.tight b{font-weight:600}
-.skills{display:grid;grid-template-columns:23mm 1fr;gap:.9mm 3mm;font-size:8.8pt}
-.skills dt{font:500 7.8pt/1.6 'Geist Mono',monospace;color:var(--mute);text-transform:uppercase;letter-spacing:.06em}
+
+.item{margin-bottom:5mm;break-inside:avoid}
+.item:last-child{margin-bottom:0}
+.ih{display:flex;justify-content:space-between;align-items:baseline;gap:6mm}
+.ih b{font-weight:600;font-size:10.8pt}
+.ih .d{font:400 8.4pt 'Geist Mono',monospace;color:var(--mute);white-space:nowrap}
+.org{color:var(--mute);font-size:9.6pt;margin-top:.6mm}
+ul{margin:2mm 0 0 4.2mm}
+li{margin:1.3mm 0;padding-left:1mm}
+li::marker{color:#999}
+
+.skills{display:grid;grid-template-columns:30mm 1fr;gap:2.4mm 4mm}
+.skills dt{font:500 8.2pt/1.7 'Geist Mono',monospace;color:var(--mute);text-transform:uppercase;letter-spacing:.06em}
+
 @media print{
   @page{size:A4;margin:0}
   html,body{background:#fff}
   .bar{display:none}
-  .page{margin:0;box-shadow:none;width:210mm;height:296mm;min-height:0;overflow:hidden}
+  .page{margin:0;box-shadow:none;width:210mm;height:296mm;min-height:0;overflow:hidden;padding:11mm 16mm 9mm}
+  body{line-height:1.47}
+  h2{margin:6mm 0 3mm}
+  .item{margin-bottom:3.8mm}
+  li{margin:.9mm 0}
+  ul{margin-top:1.6mm}
 }
 @media screen and (max-width:820px){
-  .page{width:auto;min-height:0;margin:10px 8px 30px;padding:20px 16px}
-  header{grid-template-columns:1fr;gap:10px}
-  .contact{text-align:left}
-  .ih{grid-template-columns:1fr}
-  .skills{grid-template-columns:1fr}
-  .bar{padding:0 8px}
+  body{font-size:15px;line-height:1.6}
+  .bar{margin-top:12px;padding:0 12px}
+  .bar a{padding:9px 12px}
+  .page{width:auto;min-height:0;margin:10px 0 0;padding:26px 18px 40px;box-shadow:none}
+  .top{flex-direction:column;gap:14px}
+  h1{font-size:32px}
+  .role{font-size:16px;margin-top:8px}
+  .seek{font-size:13px;padding:7px 10px;margin-top:12px;line-height:1.3}
+  .contact{text-align:left;font-size:13px;white-space:normal;word-break:break-word}
+  h2{font-size:12px;margin:30px 0 14px}
+  .item{margin-bottom:22px}
+  .ih{flex-direction:column;gap:2px}
+  .ih b{font-size:16px}
+  .ih .d{font-size:12.5px}
+  .org{font-size:14.5px;margin-top:2px}
+  ul{margin:8px 0 0 18px}
+  li{margin:6px 0}
+  .skills{grid-template-columns:1fr;gap:2px}
+  .skills dt{font-size:12px;margin-top:10px}
 }
 </style>
 </head>
@@ -58,72 +80,73 @@ li::marker{color:var(--mute)}
 <div class="bar"><a href="/">← Portfolio</a><a href="/resume/sunghan-park-resume.pdf" download>Download PDF</a></div>
 <main class="page">
   <header>
-    <div>
-      <h1>Sunghan Park</h1>
-      <div class="role">Engineering at Cambridge. Building tools for <span>crypto markets</span>, applied cryptography and ML.</div>
-      <div class="seek">Looking for internships in blockchain, ML and finance.</div>
-    </div>
-    <div class="contact">
-      sunghanpark236@gmail.com<br>
-      sunghanpark.vercel.app<br>
-      github.com/hpark236<br>
-      linkedin.com/in/sunghanpark<br>
-      Singapore
+    <div class="top">
+      <div>
+        <h1>Sunghan Park</h1>
+        <div class="role">Information Engineering, University of Cambridge</div>
+        <div class="seek">Looking for internships in blockchain, ML and finance</div>
+      </div>
+      <div class="contact">
+        <a href="mailto:sunghanpark236@gmail.com">sunghanpark236@gmail.com</a><br>
+        <a href="https://sunghanpark.vercel.app">sunghanpark.vercel.app</a><br>
+        <a href="https://github.com/hpark236">github.com/hpark236</a><br>
+        <a href="https://www.linkedin.com/in/sunghanpark/">linkedin.com/in/sunghanpark</a><br>
+        Singapore
+      </div>
     </div>
   </header>
 
   <h2>Experience</h2>
-  <div class="item"><div class="ih"><b>Research Intern, UAV Research · A*STAR Institute for Infocomm Research</b><span class="d">Apr 2024 – Aug 2024</span></div>
+  <div class="item">
+    <div class="ih"><b>Research Intern, UAV Research</b><span class="d">Apr 2024 – Aug 2024</span></div>
+    <div class="org">A*STAR Institute for Infocomm Research (I2R), Singapore</div>
     <ul>
-      <li>Ran Ubuntu and ROS 2 simulations to test and iterate drone perching mechanisms for forestry and aerospace tasks; co-developed a hybrid mounting leg and claw that improves quadcopter stability during aerial tasks.</li>
-    </ul></div>
-  <div class="item"><div class="ih"><b>Financial Analysis Engineer · Wharton Global High School Investment Competition</b><span class="d">Semifinalist, May 2024</span></div>
+      <li>Selected as a research intern under scientist Efe Camci at A*STAR, Singapore's government research agency.</li>
+      <li>Designed and built a perching mechanism that lets drones attach to surfaces for high-risk forestry and aerospace tasks.</li>
+      <li>Ran simulations in Ubuntu and ROS 2, and modelled designs in CAD, to test stability and adaptability across different surfaces.</li>
+      <li>Co-developed a hybrid mounting leg and claw for quadcopters that improves stability and orientation during aerial tasks.</li>
+    </ul>
+  </div>
+  <div class="item">
+    <div class="ih"><b>Financial Analysis Engineer</b><span class="d">2024 · Semifinalist</span></div>
+    <div class="org">Wharton Global High School Investment Competition</div>
     <ul>
-      <li>Built the team's financial analysis for a simulated client portfolio, covering company valuation, risk and allocation; the team reached the semifinal round.</li>
-    </ul></div>
-  <div class="item"><div class="ih"><b>Head of Curriculum and Mentor · Code For All</b><span class="d">Sep 2022 – Jan 2025</span></div>
+      <li>Responsible for the financial analysis behind the team's investment decisions for a simulated client portfolio.</li>
+      <li>Analysed company financials, valuation and risk to support the team's stock selection and allocation.</li>
+      <li>Team advanced to the semifinal round of the global competition.</li>
+    </ul>
+  </div>
+  <div class="item">
+    <div class="ih"><b>Head of Curriculum and Mentor</b><span class="d">Sep 2022 – Jan 2025</span></div>
+    <div class="org">Code For All, Singapore</div>
     <ul>
-      <li>Designed the Java, Python and Scratch curriculum for a nonprofit teaching underprivileged children in Singapore to code; mentored students and volunteer tutors and ran partnerships with PPIS, Care Corner and Impact.</li>
-    </ul></div>
+      <li>Created and maintained programming curricula in Java, Python and Scratch for a nonprofit teaching underprivileged children in Singapore to code.</li>
+      <li>Tutored students through coursework, identified where they were falling behind, and helped them close those gaps.</li>
+      <li>Mentored students and volunteer tutors, building students' confidence with programming.</li>
+      <li>Built partnerships with community organisations including PPIS, Care Corner and Impact.</li>
+    </ul>
+  </div>
 
   <h2>Education</h2>
-  <div class="item"><div class="ih"><b>University of Cambridge, Trinity College</b><span class="d">From Oct 2027</span></div>
-    <div class="sub">Engineering, Information Engineering track</div></div>
-  <div class="item"><div class="ih"><b>Singapore American School</b><span class="d">Aug 2022 – May 2025</span></div>
-    <div class="sub">High School Diploma. Mu Alpha Theta, Computer Science Honor Society, Science National Honor Society. Robotics, Research Club.</div></div>
-
-  <h2>Web3 projects</h2>
-  <div class="item"><div class="ih"><b>xvenue-arb · tennis and golf arbitrage scanner</b><span class="d">xvenue-arb.vercel.app</span></div>
+  <div class="item">
+    <div class="ih"><b>University of Cambridge, Trinity College</b><span class="d">From Oct 2027</span></div>
+    <div class="org">Engineering, Information Engineering track</div>
+  </div>
+  <div class="item">
+    <div class="ih"><b>Singapore American School</b><span class="d">Aug 2022 – May 2025</span></div>
+    <div class="org">High School Diploma</div>
     <ul>
-      <li>Compares tennis and golf prices across Polymarket, Kalshi and Pinnacle including fees, flags when backing both outcomes on two venues costs under $1, and sizes the trade from live order books.</li>
-    </ul></div>
-  <div class="item"><div class="ih"><b>token-risk · memecoin health evaluator</b><span class="d">token-risk.vercel.app</span></div>
-    <ul>
-      <li>Grades Solana and EVM tokens 0–100 on mint/freeze authority, honeypot and tax checks, liquidity and LP locks, holder concentration (Gini, HHI, insider clusters) and trade flow, with hard caps for disqualifying risks.</li>
-    </ul></div>
-  <div class="item"><div class="ih"><b>secp256k1-js · secp256k1 cryptography from scratch</b><span class="d">secp256k1-js.vercel.app</span></div>
-    <ul>
-      <li>Curve arithmetic, Keccak-256, RFC 6979 ECDSA with ecrecover, BIP-340 Schnorr and Shamir sharing in JavaScript BigInt, verified against OpenSSL and published vectors. Live demo extracts a private key from a reused nonce.</li>
-    </ul></div>
-  <div class="item"><div class="ih"><b>cpamm-mev · Solidity constant-product pool and MEV simulator</b><span class="d">cpamm-mev.vercel.app</span></div>
-    <ul>
-      <li>Uniswap-V2-style pool in Solidity (OpenZeppelin, Hardhat). Simulator reads mainnet reserves over raw JSON-RPC and solves optimal sandwich and CEX-arbitrage trades; contract tests replay the sandwich and match the model to the wei.</li>
-    </ul></div>
-
-  <h2>AI and quant projects</h2>
-  <ul class="tight">
-    <li><b>FinCouncil</b>, open-source multi-agent LLM investment council: five analyst agents plus a CIO synthesis on live brokerage data, with cross-examination and fact-checking.</li>
-    <li><b>QUANTDESK</b>, paper-trading quant terminal (FastAPI): pluggable Python strategies, backtester, Binance and pump.fun memecoin feeds, alert scanner.</li>
-    <li><b>Hold'em Noir</b>, poker engine whose bots track Bayesian ranges over 1,326 combos, with Monte Carlo equity and a push/fold Nash solver by fictitious play.</li>
-    <li><b>SwingLab</b>, in-browser computer vision: MediaPipe pose and object detection, Hough-transform court detection, kinetic-chain analysis.</li>
-  </ul>
+      <li>Mu Alpha Theta, Computer Science Honor Society, Science National Honor Society, French Honor Society.</li>
+      <li>Robotics, Research Club, Math Club, Code For All.</li>
+    </ul>
+  </div>
 
   <h2>Skills</h2>
   <dl class="skills">
-    <dt>Code</dt><dd>Python, JavaScript / TypeScript, Solidity, Java, SQL</dd>
-    <dt>Web3</dt><dd>EVM and JSON-RPC, Hardhat, OpenZeppelin, AMMs and MEV, prediction-market microstructure, Solana token programs, ECDSA / Schnorr</dd>
-    <dt>ML / quant</dt><dd>MediaPipe, NumPy, pandas, Monte Carlo, Bayesian inference, backtesting, LLM agents, FastAPI, ROS 2</dd>
-    <dt>Languages</dt><dd>English and Korean (native), Mandarin and French (professional)</dd>
+    <dt>Programming</dt><dd>Python, JavaScript / TypeScript, Solidity, Java, SQL</dd>
+    <dt>Tools</dt><dd>Git, Hardhat, FastAPI, Node.js, ROS 2, CAD</dd>
+    <dt>Areas</dt><dd>Blockchain and smart contracts, cryptography, machine learning, quantitative finance</dd>
+    <dt>Languages</dt><dd>English and Korean (native), Mandarin and French (professional working proficiency)</dd>
   </dl>
 </main>
 </body>
