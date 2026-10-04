@@ -28,7 +28,9 @@ h1{font:700 26pt/1 'Geist',sans-serif;letter-spacing:-.025em}
 .about{margin-top:5mm;font-size:10.2pt;line-height:1.6;color:#2a2a2a;max-width:165mm}
 
 h2{font:600 8pt/1 'Geist Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:8mm 0 3.5mm;display:flex;gap:3mm;align-items:center}
-h2::after{content:'';flex:1;border-top:.6pt solid var(--rule)}
+h2::after{content:'';flex:1;border-top:.6pt solid var(--rule);order:1}
+h2 a{order:2;text-transform:none;letter-spacing:0;color:var(--acc);font-weight:500}
+.ih a{color:var(--acc);font:400 8.4pt 'Geist Mono',monospace;margin-left:2mm;font-weight:400}
 
 .item{margin-bottom:5mm;break-inside:avoid}
 .item:last-child{margin-bottom:0}
@@ -44,17 +46,12 @@ li::marker{color:#999}
 .skills dt{font:500 8.2pt/1.7 'Geist Mono',monospace;color:var(--mute);text-transform:uppercase;letter-spacing:.06em}
 
 @media print{
-  @page{size:A4;margin:0}
+  @page{size:A4;margin:12mm 0 11mm}
   html,body{background:#fff}
   .bar{display:none}
-  .page{margin:0;box-shadow:none;width:210mm;height:296mm;min-height:0;overflow:hidden;padding:11mm 16mm 9mm}
-  body{line-height:1.42;font-size:9.6pt}
-  header{padding-bottom:4mm}
-  h2{margin:5mm 0 2.6mm}
-  .about{margin-top:3.2mm;font-size:9.8pt;line-height:1.5}
-  .item{margin-bottom:3.2mm}
-  li{margin:.7mm 0}
-  ul{margin-top:1.3mm}
+  .page{margin:0;box-shadow:none;width:210mm;min-height:0;padding:0 16mm}
+  body{line-height:1.5}
+  h2{break-after:avoid}
 }
 @media screen and (max-width:820px){
   body{font-size:15px;line-height:1.6}
@@ -103,6 +100,17 @@ li::marker{color:#999}
 
   <h2>Experience</h2>
   <div class="item">
+    <div class="ih"><b>Freelance Consultant, Building in Stealth</b><span class="d">Jul 2025 – Present</span></div>
+    <div class="org">Independent, Singapore and remote</div>
+    <ul>
+      <li>Advise blockchain projects on technical design and strategy, working under NDAs.</li>
+      <li>Build algorithmic trading systems for private clients, also under NDA.</li>
+      <li>Support a luxury real estate brokerage in New York with backend systems and operations.</li>
+      <li>Plan and run the brokerage's marketing campaigns in Southeast Asia.</li>
+      <li>Building an early-stage product in stealth.</li>
+    </ul>
+  </div>
+  <div class="item">
     <div class="ih"><b>UAV + AI Researcher</b><span class="d">Apr 2024 – Aug 2024</span></div>
     <div class="org">A*STAR Institute for Infocomm Research (I2R), Singapore</div>
     <ul>
@@ -131,6 +139,24 @@ li::marker{color:#999}
       <li>Tutored students through coursework, spotting where they fell behind and helping them catch up.</li>
       <li>Mentored students and volunteer tutors, building students' confidence with programming.</li>
       <li>Built partnerships with community organisations including PPIS, Care Corner and Impact.</li>
+    </ul>
+  </div>
+
+  <h2>Projects <a href="https://sunghanpark.vercel.app">sunghanpark.vercel.app</a></h2>
+  <div class="item">
+    <div class="ih"><b>Hold'em Noir<a href="https://poker-noir.vercel.app">poker-noir.vercel.app</a></b><span class="d">2026</span></div>
+    <div class="org">Platform for learning and playing poker against AI opponents I built</div>
+    <ul>
+      <li>Built AI opponents that track each player's hand range with Bayesian updates, model their tendencies, and play distinct styles from GTO to aggressive.</li>
+      <li>Includes a game-theory classroom with drills, puzzles, a live equity coach and an in-browser push/fold Nash solver.</li>
+    </ul>
+  </div>
+  <div class="item">
+    <div class="ih"><b>QuantDesk</b><span class="d">2026</span></div>
+    <div class="org">Paper trading software for stocks and crypto, built from scratch</div>
+    <ul>
+      <li>Simulates order fills with slippage and fees on live market data for stocks and crypto.</li>
+      <li>Plug-in strategy engine with a backtester, live paper deployment and an automated market alert scanner.</li>
     </ul>
   </div>
 
